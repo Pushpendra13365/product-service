@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    primary:
+      url: jdbc:mysql://localhost:3306/product
+      username: root
+      password: Pushpendra#123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    secondary:
+      url: jdbc:postgresql://localhost:5432/microservices
+      username: postgres
+      password: Test
+      driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
