@@ -18,5 +18,9 @@ spring:
       password: Test
       driver-class-name: org.postgresql.Driver
 
+  redis:
+    host: localhost
+    port: 6379
+
   jpa:
     show-sql: true

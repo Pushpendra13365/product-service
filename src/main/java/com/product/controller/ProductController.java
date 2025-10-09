@@ -1,12 +1,9 @@
 package com.product.controller;
 
-import com.product.request.ProductRequest;
+import com.product.request.MobileRequest;
 import com.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/product")
@@ -16,7 +13,12 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/save")
-    public Object saveProduct(@RequestBody ProductRequest productRequest){
-        return productService.saveProduct(productRequest);
+    public Object saveProduct(@RequestBody MobileRequest mobileRequest){
+        return productService.saveMobile(mobileRequest);
+    }
+
+    @GetMapping("/getMobile")
+    public Object getMobile(){
+     return productService.getMobile();
     }
 }
