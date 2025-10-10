@@ -13,7 +13,6 @@ public class ProductService {
 
     private final MobileRepository mobileRepository;
 
-
     public Object saveMobile(MobileRequest productRequest){
         Mobile product = new Mobile();
         product.setProductName(productRequest.getProductName());
