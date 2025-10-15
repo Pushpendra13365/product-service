@@ -1,9 +1,13 @@
 package com.product.controller;
 
+import com.product.entity.primary.Mobile;
 import com.product.request.MobileRequest;
+import com.product.response.MobileResponse;
 import com.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
@@ -18,7 +22,12 @@ public class ProductController {
     }
 
     @GetMapping("/getMobile")
-    public Object getMobile(){
-     return productService.getMobile();
+    public MobileResponse getMobile(@RequestParam (required = false)String productName){
+        return productService.getMobile(productName);
+    }
+
+    @GetMapping("/getMobileByPath/{id}")
+    public Object getMobileByPath(@PathVariable("id") Long id){
+        return productService.getMobileById(id);
     }
 }
