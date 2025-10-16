@@ -8,15 +8,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
     private final MobileRepository mobileRepository;
 
-    public Object saveMobile(MobileRequest productRequest){
+    public Object saveMobile(MobileRequest productRequest) {
         Mobile product = new Mobile();
         product.setProductName(productRequest.getProductName());
         product.setExpiryDate(productRequest.getExpiryDate());
@@ -25,7 +23,7 @@ public class ProductService {
     }
 
     @Cacheable(value = "mobiles")
-    public MobileResponse getMobile(String productName){
+    public MobileResponse getMobile(String productName) {
         Mobile mobile = mobileRepository.findByProductName(productName).orElseThrow(() -> new RuntimeException("Mobile Not Found"));
         MobileResponse mob = new MobileResponse();
         mob.setId(mobile.getId());
@@ -34,7 +32,7 @@ public class ProductService {
         return mob;
     }
 
-    public Object getMobileById(Long id){
+    public Object getMobileById(Long id) {
         return mobileRepository.findById(id);
     }
 }
